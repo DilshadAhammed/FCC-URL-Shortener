@@ -29,7 +29,7 @@ app.post('/api/shorturl', function(req, res) {
   console.log(typeof(url));
   let dnslookup = dns.lookup(urlp.parse(url).hostname, async (err, addr)=>{
     if(!addr){
-      res.jsom({error: "Invalid URL"});
+      res.json({ error: 'invalid url' });
     } 
     else{
       const dcCount = await urls.countDocuments({});
